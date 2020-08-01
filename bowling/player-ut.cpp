@@ -61,3 +61,33 @@ TEST_F(TestPlayer, checkScoreGameWithAllStrikes) {
     player.countScore(score);
     ASSERT_EQ(player.getScore(), 300);
 }
+
+TEST_F(TestPlayer, checkScoreGameWithSpareAndStrikeInTheMiddle) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {5, 5}, {1, 1}, {10, 0}, {1, 1}, {1, 1}, {1, 1}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 39);
+}
+
+TEST_F(TestPlayer, checkScoreGameWithOneSpareAfterStrikeInTheMiddle) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {10, 0}, {5, 5}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 47);
+}
+
+TEST_F(TestPlayer, checkScoreGameWithTwoSparesAfterStrikeInTheMiddle) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {10, 0}, {5, 5}, {5, 5}, {1, 1}, {1, 1}, {1, 1}, {1, 1}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 60);
+}
+
+TEST_F(TestPlayer, checkScoreGameWithOneStrikeAfterSpareInTheMiddle) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {5, 5}, {10, 0}, {1, 1}, {1, 1}, {1, 1}, {1, 1}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 48);
+}
+
+TEST_F(TestPlayer, checkScoreGameWithTwoStrikesAfterSpareInTheMiddle) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {5, 5}, {10, 0}, {10, 0}, {1, 1}, {1, 1}, {1, 1}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 67);
+}

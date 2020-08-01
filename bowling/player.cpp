@@ -14,36 +14,26 @@ void Player::countScore(std::vector<std::pair<int, int>> score) {
     int result = 0;
     int single_result = 0;
 
-    for (const auto& it : score) {
+    for (int i = 0; i <= 9; i++) {
         single_result = 0;
-        if (strike) {
-            strike = false;
-            single_result += it.first;
-            single_result += it.second;
-            single_result *= 2;
 
-            result += single_result;
-        } else if (spare) {
-            spare = false;
-            single_result += it.first;
-            single_result *= 2;
-            single_result += it.second;
-
-            result += single_result;
-        } else {
-            single_result += it.first;
-            single_result += it.second;
-
-            result += single_result;
-        }
-
-        if (it.first == 10) {
+        if (score[i].first == 10) {
             strike = true;
+            if (score[i + 1].first == 10) {
+                result += (score[i].first + score[i + 1].first + score[i + 2].first);
+            } else {
+                result += (score[i].first + score[i + 1].first + score[i + 1].second);
+            }
+            continue;
         }
 
-        if ((it.first + it.second == 10) && (it.first != 10)) {
+        if ((score[i].first + score[i].second == 10) && (score[i].first != 10)) {
             spare = true;
+            result += (score[i].first + score[i].second + score[i + 1].first);
+            continue;
         }
+
+        result += (score[i].first + score[i].second);
     }
     Player::setScore(result);
 }

@@ -46,13 +46,13 @@ TEST_F(TestPlayer, checkScoreGameWithSpareInTheMiddle) {
 TEST_F(TestPlayer, checkScoreGameWithStrikeAtTheEnd) {
     score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {10, 0}, {1, 1}};
     player.countScore(score);
-    ASSERT_EQ(player.getScore(), 32);
+    ASSERT_EQ(player.getScore(), 30);
 }
 
 TEST_F(TestPlayer, checkScoreGameWithSpareAtTheEnd) {
     score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {5, 5}, {1, 0}};
     player.countScore(score);
-    ASSERT_EQ(player.getScore(), 30);
+    ASSERT_EQ(player.getScore(), 29);
 }
 
 TEST_F(TestPlayer, checkScoreGameWithAllStrikes) {

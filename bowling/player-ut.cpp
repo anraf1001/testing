@@ -32,3 +32,10 @@ TEST_F(TestPlayer, checkScoreGameWithSpareAtTheEnd) {
     player.countScore(score);
     ASSERT_EQ(player.getScore(), 30);
 }
+
+TEST_F(TestPlayer, checkScoreGameWithAllStrikes) {
+    score = {{10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0},
+             {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 300);
+}

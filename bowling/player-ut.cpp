@@ -14,3 +14,9 @@ TEST_F(TestPlayer, checkScoreGameWithStrikeInTheMiddle) {
     player.countScore(score);
     ASSERT_EQ(player.getScore(), 30);
 }
+
+TEST_F(TestPlayer, checkScoreGameWithSpareInTheMiddle) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {5, 5}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}};
+    player.countScore(score);
+    ASSERT_EQ(player.getScore(), 29);
+}

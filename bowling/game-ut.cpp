@@ -26,9 +26,21 @@ TEST_F(TestGame, checkIfGameWithSpareAtTheEndIsFinished) {
     ASSERT_EQ(game.getIsFinished(), true);
 }
 
+TEST_F(TestGame, checkIfGameWithSpareAtTheEndIsNotFinished) {
+    score = {{1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {1, 1}, {3, 7}};
+    game.checkGameProgress(score);
+    ASSERT_EQ(game.getIsFinished(), false);
+}
+
 TEST_F(TestGame, checkIfGameWithStrikesAtTheEndIsFinished) {
     score = {{10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0},
              {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}};
     game.checkGameProgress(score);
     ASSERT_EQ(game.getIsFinished(), true);
+}
+
+TEST_F(TestGame, checkIfGameWithStrikesAtTheEndIsNotFinished) {
+    score = {{10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}};
+    game.checkGameProgress(score);
+    ASSERT_EQ(game.getIsFinished(), false);
 }

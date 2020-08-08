@@ -64,7 +64,5 @@ void File::readFile(std::string filename) {
             this->results_ = line;
         }
         lane.close();
-    } else {
-        std::cout << "PROBLEM" << std::endl;
     }
 }

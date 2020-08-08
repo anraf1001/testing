@@ -11,4 +11,5 @@ public:
 private:
     std::string results;
     std::vector<std::pair<int, int>> score_;
+    void splitString(const std::string& str, std::vector<std::string>& vec, char delim);
 };

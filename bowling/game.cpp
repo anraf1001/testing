@@ -14,6 +14,9 @@ void Game::checkGameProgress(std::vector<std::pair<int, int>> score) {
     } else if ((score[lastNormalRound].first + score[lastNormalRound].second == 10) &&
                (score[lastNormalRound].first != 10) && (score.size() == 11)) {
         isFinished_ = true;
+    } else if ((score[lastNormalRound].first == 10) && (score[lastNormalRound + 1].first != 10) &&
+               (score.size() == 11)) {
+        isFinished_ = true;
     } else if ((score[lastNormalRound].first == 10) && (score[lastNormalRound + 1].first == 10) &&
                (score.size() == 12)) {
         isFinished_ = true;

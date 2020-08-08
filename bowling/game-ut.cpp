@@ -44,3 +44,9 @@ TEST_F(TestGame, checkIfGameWithStrikesAtTheEndIsNotFinished) {
     game.checkGameProgress(score);
     ASSERT_EQ(game.getIsFinished(), false);
 }
+
+TEST_F(TestGame, checkIfMixedGameIsFinished) {
+    score = {{10, 0}, {7, 3}, {9, 0}, {10, 0}, {0, 8}, {8, 2}, {0, 6}, {10, 0}, {10, 0}, {10, 0}, {8, 1}};
+    game.checkGameProgress(score);
+    ASSERT_EQ(game.getIsFinished(), true);
+}

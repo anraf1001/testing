@@ -46,3 +46,10 @@ TEST_F(TestFile, checkIfGameOfMixedThrowsIsTranslatedCorrectly) {
     file.translateResultsToScoreVector(results);
     ASSERT_EQ(file.getScores(), score);
 }
+
+TEST_F(TestFile, checkIfFileIsReadCorrectly) {
+    std::string filename = "../lane.txt";
+    results = "X|7/|9-|X|-8|8/|-6|X|X|X||81";
+    file.readFile(filename);
+    ASSERT_EQ(file.getResults(), results);
+}

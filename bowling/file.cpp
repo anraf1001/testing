@@ -1,11 +1,15 @@
 #include "file.hpp"
 
 #include <algorithm>
-#include <experimental/filesystem>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <iterator>
 #include <sstream>
+
+File::File() : fileName_("../lane.txt"){};
+
+File::File(std::string fileName) : fileName_(fileName) {}
 
 std::vector<std::pair<int, int>> File::getScores() const {
     return score_;
@@ -57,9 +61,9 @@ void File::translateResultsToScoreVector(std::string results) {
     }
 }
 
-void File::readFile(std::string filename) {
+void File::readFile() {
     std::string line;
-    std::ifstream lane(filename);
+    std::ifstream lane(this->fileName_);
     if (lane.is_open()) {
         while (getline(lane, line)) {
             this->results_ = line;
@@ -68,10 +72,8 @@ void File::readFile(std::string filename) {
     }
 }
 
-File::File(std::string fileName) : fileName_(fileName) {}
-
 void File::saveFile() {
-    namespace fs = std::experimental::filesystem;
+    namespace fs = std::filesystem;
     fs::path path = fs::current_path();
     fs::create_directories(path.parent_path());
     std::ofstream ofs(path);

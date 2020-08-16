@@ -5,11 +5,12 @@
 
 class File {
 public:
+    File();
     File(std::string fileName);
     std::vector<std::pair<int, int>> getScores() const;
     std::string getResults() const;
     void translateResultsToScoreVector(std::string results);
-    void readFile(std::string filename);
+    void readFile();
     void saveFile();
 
 private:

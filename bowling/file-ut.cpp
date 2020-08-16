@@ -9,6 +9,7 @@ struct TestFile : public ::testing::Test {
     File file;
     std::string results{};
     std::vector<std::pair<int, int>> score{};
+    // std::string fileName_ = "../lane.txt";
 };
 
 TEST_F(TestFile, checkIfGameInProgressIsTranslatedCorrectly) {
@@ -48,8 +49,7 @@ TEST_F(TestFile, checkIfGameOfMixedThrowsIsTranslatedCorrectly) {
 }
 
 TEST_F(TestFile, checkIfFileIsReadCorrectly) {
-    std::string filename = "../lane.txt";
     results = "X|7/|9-|X|-8|8/|-6|X|X|X||81";
-    file.readFile(filename);
+    file.readFile();
     ASSERT_EQ(file.getResults(), results);
 }

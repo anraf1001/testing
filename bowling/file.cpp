@@ -1,6 +1,7 @@
 #include "file.hpp"
 
 #include <algorithm>
+#include <experimental/filesystem>
 #include <fstream>
 #include <iostream>
 #include <iterator>
@@ -64,5 +65,20 @@ void File::readFile(std::string filename) {
             this->results_ = line;
         }
         lane.close();
+    }
+}
+
+File::File(std::string fileName) : fileName_(fileName) {}
+
+void File::saveFile() {
+    namespace fs = std::experimental::filesystem;
+    fs::path path = fs::current_path();
+    fs::create_directories(path.parent_path());
+    std::ofstream ofs(path);
+    if (!ofs) {
+        std::cerr << "Could not open " << fileName_ << " for writing!\n";
+    } else {
+        ofs << "score";
+        ofs.close();
     }
 }

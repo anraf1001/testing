@@ -19,10 +19,10 @@ std::string File::getResults() const {
     return results_;
 }
 
-void File::splitString(const std::string& str, std::vector<std::string>& vec, char delim = '|') {
+void File::splitString(const std::string& str, std::vector<std::string>& vec) {
     std::stringstream ss(str);
     std::string token;
-    while (std::getline(ss, token, delim)) {
+    while (std::getline(ss, token, delimiter)) {
         vec.push_back(token);
     }
 }

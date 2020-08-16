@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+const char delimiter = '|';
+
 class File {
 public:
     File();
@@ -17,5 +19,5 @@ private:
     std::string fileName_;
     std::string results_;
     std::vector<std::pair<int, int>> score_;
-    void splitString(const std::string& str, std::vector<std::string>& vec, char delim);
+    void splitString(const std::string& str, std::vector<std::string>& vec);
 };

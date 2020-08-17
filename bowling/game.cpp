@@ -1,4 +1,5 @@
 #include "game.hpp"
+
 #include <iostream>
 
 void Game::printHelp(){
@@ -11,4 +12,5 @@ void Game::printHelp(){
         << "Example of use: \n"
         << "***** ./bowling inputDirectory results.txt\n"
         << "***** ./bowling inputDirectory";
+
 }

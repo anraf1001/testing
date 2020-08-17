@@ -1,6 +1,6 @@
 #pragma once
 
 class Game {
-    public:
+public:
     static void printHelp();
 };

@@ -1,5 +1,6 @@
 #include "game.hpp"
 
+#include <iostream>
 bool Game::getIsFinished() const {
     return isFinished_;
 };
@@ -31,3 +32,7 @@ bool Game::checkEndConditionFor11Turns(std::vector<std::pair<int, int>> score) {
 bool Game::checkEndConditionFor12Turns(std::vector<std::pair<int, int>> score) {
     return (score[lastNormalRound].first == 10) && (score[lastNormalRound + 1].first == 10);
 };
+
+void Game::printHelp() {
+    std::cout << "MANUAL\n";
+}

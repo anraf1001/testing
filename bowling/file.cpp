@@ -69,6 +69,8 @@ void File::readFile() {
             this->results_ = line;
         }
         lane.close();
+    } else {
+        std::cerr << "Could not open file ...";
     }
 }
 

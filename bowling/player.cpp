@@ -10,7 +10,6 @@ void Player::setScore(int score) {
 
 void Player::countScore(std::vector<std::pair<int, int>> score) {
     int result = 0;
-    constexpr int lastNormalRound = 9;
 
     for (int i = 0; i <= lastNormalRound; i++) {
         if (score[i].first == 10) {

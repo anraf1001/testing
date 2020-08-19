@@ -1,13 +1,10 @@
 #include "file.hpp"
 
-#include <algorithm>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <iterator>
 #include <sstream>
-
-File::File() : fileName_("../lane.txt"){};
 
 File::File(std::string fileName) : fileName_(fileName) {}
 

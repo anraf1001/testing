@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+#include <iostream>
+
 bool Game::getIsFinished() const {
     return isFinished_;
 };
@@ -24,3 +26,7 @@ void Game::checkGameProgress(std::vector<std::pair<int, int>> score) {
         isFinished_ = false;
     }
 };
+
+void Game::printHelp() {
+    std::cout << "MANUAL\n";
+}

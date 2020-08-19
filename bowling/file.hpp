@@ -7,7 +7,6 @@ const char delimiter = '|';
 
 class File {
 public:
-    File();
     File(std::string fileName);
     std::vector<std::pair<int, int>> getScores() const;
     std::string getResults() const;
